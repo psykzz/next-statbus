@@ -1,0 +1,144 @@
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.title b {
+  color: #0070f3;
+  text-fill-color: unset;
+}
+
+.subtitle {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.title,
+.subtitle,
+.description {
+  text-align: center;
+}
+
+.description {
+  margin: 4rem 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.description a {
+  position: relative;
+  display: inline-block;
+  font-size: 1.5rem;
+  border-radius: 6.5px;
+  padding: 0.5rem 0.75rem;
+  min-width: auto;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+
+  background-color: rgba(128, 128, 128, 0.2);
+  color: #f9f9f9;
+}
+
+.description a:hover,
+.description a:focus,
+.description a:active {
+  background-color: unset;
+}
+
+.description a::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  padding: 2px;
+  border: 0px;
+  opacity: 0;
+  border-radius: 14px;
+  --angle: 0deg;
+  animation: 8s linear 0s infinite normal none running rotate;
+  background: conic-gradient(
+    from var(--angle),
+    rgb(0 112 243 / 80%),
+    rgb(0 112 243 / 20%),
+    rgb(0 112 243 / 80%)
+  );
+  mask: linear-gradient(rgb(255, 255, 255) 0px, rgb(255, 255, 255) 0px)
+      content-box content-box,
+    linear-gradient(rgb(255, 255, 255) 0px, rgb(255, 255, 255) 0px);
+  mask-composite: xor;
+}
+
+.description a:hover::after,
+.description a:focus::after,
+.description a:active::after {
+  opacity: 1;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1440px;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .title {
+    background: linear-gradient(180deg, #ffffff 0%, #aaaaaa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  .title b {
+    background: linear-gradient(180deg, #0070f3 0%, #0153af 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+}
