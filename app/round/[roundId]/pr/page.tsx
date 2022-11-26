@@ -2,8 +2,11 @@ import { Octokit } from 'octokit';
 import { getRoundData } from '../../../page';
 import styles from './page.module.css';
 
+export const revalidate = 60; // revalidate this page every 60 seconds
+
 const GITHUB_BASE = 'https://github.com/tgstation/TerraGov-Marine-Corps/pull/';
 const githubToken = process.env.GITHUB_TOKEN || '';
+
 const octokit = new Octokit({
   auth: githubToken,
 });

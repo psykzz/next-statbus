@@ -1,11 +1,9 @@
-import { getRoundData, getStatbusData } from '../../../page';
+import { getRoundData } from '../../../page';
 import styles from './page.module.css';
 
-const PLAY_LINK = 'byond://tgmc.tgstation13.org:5337';
-const DISCORD_LINK = 'https://discord.gg/2dFpfNE';
+export const revalidate = 60; // revalidate this page every 60 seconds
 
 export default async function Deaths({ params: { roundId } }: any) {
-  const { summary } = await getStatbusData();
   const { deaths } = await getRoundData(roundId);
   return (
     <>

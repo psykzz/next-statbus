@@ -5,9 +5,9 @@ const PLAY_LINK = 'byond://tgmc.tgstation13.org:5337';
 const DISCORD_LINK = 'https://discord.gg/2dFpfNE';
 
 export async function getStatbusData() {
-  const summary = await (
+  const summary = await(
     await fetch('https://statbus.psykzz.com/api/summary', {
-      next: { revalidate: 10 },
+      next: { revalidate: 60 },
     })
   ).json();
   const rounds = await Promise.all(

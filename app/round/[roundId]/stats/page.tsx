@@ -1,8 +1,10 @@
 import { getRoundData } from '../../../page';
 import styles from './page.module.css';
 
+export const revalidate = 60; // revalidate this page every 60 seconds
+
 export default async function Deaths({ params: { roundId } }: any) {
-  const { round_stats, ...rest } = await getRoundData(roundId);
+  const { round_stats } = await getRoundData(roundId);
   return (
     <>
       <table className={styles.death}>
