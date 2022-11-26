@@ -1,4 +1,5 @@
 import { Octokit } from 'octokit';
+import { cache } from 'react';
 import { getRoundData } from '../../../page';
 import styles from './page.module.css';
 
@@ -11,7 +12,7 @@ const octokit = new Octokit({
   auth: githubToken,
 });
 
-const getGithubPRDetails = async (pr: number) => {
+const getGithubPRDetails = cache(async (pr: number) => {
   const json = await octokit.rest.pulls.get({
     owner: 'tgstation',
     repo: 'TerraGov-Marine-Corps',
@@ -54,7 +55,7 @@ const getGithubPRDetails = async (pr: number) => {
     allReviews: reviews.data,
     allReviewComments: reviewComments,
   };
-};
+});
 
 export default async function Deaths({ params: { roundId } }: any) {
   if (!githubToken) {
