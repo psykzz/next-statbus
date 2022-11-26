@@ -1,4 +1,3 @@
-import Footer from '../components/Footer';
 import { Round } from '../components/Round/round';
 import styles from './page.module.css';
 
@@ -58,8 +57,6 @@ export default async function Home() {
 
         <div className={styles.grid}>{rounds}</div>
       </main>
-
-      <Footer />
     </div>
   );
 }

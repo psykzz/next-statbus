@@ -1,4 +1,3 @@
-import Footer from '../components/Footer';
 import { SkeletonRound } from '../components/SkeletonRound/skeleton';
 import styles from './page.module.css';
 
@@ -36,8 +35,6 @@ export default async function LoadingHome() {
           <SkeletonRound />
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

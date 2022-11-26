@@ -51,6 +51,24 @@
   flex: 1;
 }
 
+.breadcrumbs {
+  display: flex;
+
+  width: min(1440px, 100%);
+  gap: 1rem;
+
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.breadcrumbs span {
+  flex: 1;
+}
+
 .title,
 .subtitle,
 .description {
@@ -135,20 +153,6 @@
   margin-top: 2rem;
 }
 
-.death {
-  border-collapse: collapse;
-  width: min(1440px, 100%);
-}
-.death th {
-  height: 3rem;
-  min-heiqht: 10rem;
-  border-bottom: 1px solid #eaeaea;
-  font-size: 1.2rem;
-}
-.death td {
-  padding: 1rem;
-}
-
 @media (max-width: 600px) {
   .grid {
     width: 100%;
@@ -183,4 +187,13 @@
 .subnav_item:active {
   background-color: unset;
   border-color: #1a1a1a
+}
+
+
+.roundDataRow {
+  display: flex;
+  flex-direction: column;
+  width: min(1440px, 100%);
+  margin-top: 2rem;
+  gap: 0.25rem;
 }

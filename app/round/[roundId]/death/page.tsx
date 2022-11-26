@@ -9,7 +9,6 @@ export default async function Deaths({ params: { roundId } }: any) {
   const { deaths } = await getRoundData(roundId);
   return (
     <>
-      <h3>Deaths</h3>
       <table className={styles.death}>
         <thead>
           <tr>

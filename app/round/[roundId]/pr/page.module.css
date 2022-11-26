@@ -1,0 +1,43 @@
+
+.death {
+  border-collapse: collapse;
+  min-width: min(1440px, 100%);
+}
+
+.death tbody tr:hover,
+.death tbody tr:focus,
+.death tbody tr:active {
+  background-color: rgb(0 112 243 / 25%);
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.death th {
+  height: 3rem;
+  min-heiqht: 10rem;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 1.2rem;
+} 
+.death td a {
+  display: block;
+  padding: 1rem;
+}
+
+.death td li {
+  display: inline;
+  font-size: 0.8rem;
+  line-height: 1.1;
+  padding: 0 0.5rem;
+  border-radius: 6px;
+  border: 1px solid rgb(0 112 243 / 43%);
+  margin: 0 0.1rem;
+}
+
+.missingToken {
+  border-left: 3px solid #eee;
+  padding-left: 1rem;
+  height: 4rem;
+  line-height: 4rem;
+  font-size: 1.5rem;
+  text-emphasis: unset;
+  font-weight: 600;
+}
