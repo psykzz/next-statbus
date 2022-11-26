@@ -14,15 +14,17 @@ export default function RootLayout({
         {children}
         <Footer />
         <Script
-          async
+          strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-N45E21FRJB"
         />
-        <Script id="google-gtag">
-          {`window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+        <Script id="google-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-          gtag('config', 'G-N45E21FRJB');`}
+            gtag('config', 'G-N45E21FRJB');
+          `}
         </Script>
       </body>
     </html>
