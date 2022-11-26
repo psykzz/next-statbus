@@ -21,7 +21,7 @@ export async function getStatbusData() {
 
 export async function getRoundData(roundId: number) {
   const res = await fetch(`https://statbus.psykzz.com/api/round/${roundId}`, {
-    next: { revalidate: 10 },
+    next: { revalidate: 60 },
   });
   if (!res.ok) {
     return {};
