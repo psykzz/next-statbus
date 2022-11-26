@@ -1,16 +1,17 @@
+import { use } from 'react';
+import { getRoundData } from '../../app/page';
 import styles from './round.module.css';
 
-type RoundProps = {
-    id: number;
-    game_mode: string;
-    game_mode_result: string;
-    map_name: string;
-    ship_name: string;
-
-}
-export const Round = ({id, game_mode_result, game_mode, map_name, ship_name}: RoundProps) => (
-    <a href={`/round/${id}`} className={styles.card}>
-        <h2>#{id} &rarr;</h2>
-        <p>{game_mode_result} on {map_name} {ship_name!=="UNSET" && `(${ship_name})`}.</p>
+export const Round = ({ roundId }: { roundId: any }) => {
+  const data = use(getRoundData(roundId));
+  const { game_mode_result, map_name, ship_name } = data;
+  return (
+    <a href={`/round/${roundId}`} className={styles.card}>
+      <h2>#{roundId} &rarr;</h2>
+      <p>
+        {game_mode_result} on {map_name}{' '}
+        {ship_name !== 'UNSET' && `(${ship_name})`}.
+      </p>
     </a>
-);
+  );
+};

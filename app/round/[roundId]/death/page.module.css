@@ -1,0 +1,15 @@
+
+.death {
+  border-collapse: collapse;
+  min-width: min(1440px, 100%);
+
+}
+.death th {
+  height: 3rem;
+  min-heiqht: 10rem;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 1.2rem;
+} 
+.death td {
+  padding: 1rem;
+}

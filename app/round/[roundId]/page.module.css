@@ -2,6 +2,7 @@
   padding: 0 2rem;
 }
 
+
 .main {
   min-height: 100vh;
   padding: 4rem 0;
@@ -43,6 +44,11 @@
   font-style: normal;
   font-weight: 800;
   letter-spacing: -0.025em;
+  display: flex;
+}
+
+.subtitle span {
+  flex: 1;
 }
 
 .title,
@@ -54,7 +60,7 @@
 .description {
   margin: 4rem 0;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .description a {
@@ -62,7 +68,7 @@
   display: inline-block;
   font-size: 1.5rem;
   border-radius: 6.5px;
-  padding: 1rem 1.25rem;
+  padding: 0.5rem 0.75rem;
   min-width: auto;
   text-transform: uppercase;
   font-weight: 800;
@@ -129,9 +135,52 @@
   margin-top: 2rem;
 }
 
+.death {
+  border-collapse: collapse;
+  width: min(1440px, 100%);
+}
+.death th {
+  height: 3rem;
+  min-heiqht: 10rem;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 1.2rem;
+}
+.death td {
+  padding: 1rem;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
   }
+}
+
+
+/*Layout styles*/
+.subnav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  margin: 2rem 0;
+  gap: 2rem;
+}
+
+.subnav_item {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: #1a1a1a;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.subnav_item:hover,
+.subnav_item:focus,
+.subnav_item:active {
+  background-color: unset;
+  border-color: #1a1a1a
 }
