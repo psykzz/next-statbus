@@ -10,12 +10,19 @@ export async function getStatbusData() {
       next: { revalidate: 60 },
     })
   ).json();
+  
+  if (!res.ok) {
+    return {};
+  }
+
+  // Remove this - do it later in the component itself.
   const rounds = await Promise.all(
     summary.rounds.map(async (roundId: number) => {
       // const data = await getRoundData(roundId);
       return <Round key={roundId} roundId={roundId} />;
     })
   );
+  
   return { summary, rounds };
 }
 
