@@ -10,10 +10,6 @@ export async function getStatbusData() {
       next: { revalidate: 60 },
     })
   ).json();
-  
-  if (!res.ok) {
-    return {};
-  }
 
   // Remove this - do it later in the component itself.
   const rounds = await Promise.all(
