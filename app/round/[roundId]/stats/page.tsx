@@ -1,4 +1,4 @@
-import { getRoundData } from '../../../page';
+import { getRoundData } from '../../../api';
 import styles from './page.module.css';
 
 export const revalidate = 60; // revalidate this page every 60 seconds

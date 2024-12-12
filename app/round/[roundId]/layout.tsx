@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { getRoundData, getStatbusData } from '../../page';
 import styles from './page.module.css';
+import { getStatbusData, getRoundData } from '../../api';
 
 const PLAY_LINK = 'byond://tgmc.tgstation13.org:5337';
 const DISCORD_LINK = 'https://discord.gg/2dFpfNE';
@@ -9,12 +9,13 @@ export const revalidate = 60; // revalidate this page every 60 seconds
 
 export default async function RoundLayout({
   children,
-  params: { roundId },
+  params,
 }: {
   children: React.ReactNode;
-  params: Record<string, any>;
+  params: Promise<Record<string, any>>;
 }) {
   const { summary } = await getStatbusData();
+  const { roundId } = await params;
   const { game_mode, game_mode_result, map_name, ship_name, deaths } =
     await getRoundData(roundId);
   return (
