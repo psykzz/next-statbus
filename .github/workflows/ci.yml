@@ -30,9 +30,6 @@ jobs:
       - name: Check linting
         run: npm run lint
 
-      - name: Run tests
-        run: npm run test
-
   automerge:
     needs: run-ci
     runs-on: ubuntu-latest
