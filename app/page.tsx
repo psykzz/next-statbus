@@ -15,7 +15,7 @@ export async function getStatbusData() {
   const rounds = await Promise.all(
     summary.rounds.map(async (roundId: number) => {
       // const data = await getRoundData(roundId);
-      return <Round key={roundId} roundId={roundId} />;
+      return roundId;
     })
   );
   
@@ -58,7 +58,7 @@ export default async function Home() {
 
         <h2 className={styles.subtitle}>Latest rounds</h2>
 
-        <div className={styles.grid}>{rounds}</div>
+        <div className={styles.grid}>{rounds.map(roundId => <Round key={roundId} roundId={roundId} />)}</div>
       </main>
     </div>
   );
