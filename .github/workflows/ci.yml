@@ -18,20 +18,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'yarn'
+          cache: 'npm'
 
 
       - name: Install dependencies
-        run: yarn
+        run: npm ci
 
       - name: Check types
-        run: yarn type-check
+        run: npm run type-check
 
       - name: Check linting
-        run: yarn lint
+        run: npm run lint
 
       - name: Run tests
-        run: yarn test
+        run: npm run test
 
   automerge:
     needs: run-ci
