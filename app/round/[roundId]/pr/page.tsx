@@ -1,7 +1,7 @@
 import { Octokit } from 'octokit';
 import { cache } from 'react';
-import { getRoundData } from '../../../page';
 import styles from './page.module.css';
+import { getRoundData } from '../../../api';
 
 export const revalidate = 60; // revalidate this page every 60 seconds
 
@@ -77,7 +77,7 @@ export default async function Deaths({ params: { roundId } }: any) {
         thumbs_up: 0,
         thumbs_down: 0,
       };
-      reactions.forEach(reaction => {
+      reactions.forEach((reaction: any) => {
         if (reaction.content === '+1') {
           totalReactions.thumbs_up++;
         }
@@ -85,7 +85,7 @@ export default async function Deaths({ params: { roundId } }: any) {
           totalReactions.thumbs_down++;
         }
       });
-      allComments.forEach(comment => {
+      allComments.forEach((comment: any) => {
         totalReactions.thumbs_up += comment.reactions?.['+1'] ?? 0;
         totalReactions.thumbs_down += comment.reactions?.['-1'] ?? 0;
       });
@@ -117,7 +117,7 @@ export default async function Deaths({ params: { roundId } }: any) {
           <td>
             <a href={pullRequestUrl}>
               <ul>
-                {labels.map((label, index) => (
+                {labels.map((label: any, index: any) => (
                   <li key={index}>
                     <span title={label.description ?? ''}>{label.name}</span>
                   </li>

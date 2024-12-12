@@ -1,6 +1,6 @@
 import { use } from 'react';
-import { getRoundData } from '../../app/page';
 import styles from './round.module.css';
+import { getRoundData } from '../../app/api';
 
 export const Round = ({ roundId }: { roundId: any }) => {
   const data = use(getRoundData(roundId));

@@ -1,37 +1,9 @@
 import { Round } from '../components/Round/round';
+import { getStatbusData } from './api';
 import styles from './page.module.css';
 
 const PLAY_LINK = 'byond://tgmc.tgstation13.org:5337';
 const DISCORD_LINK = 'https://discord.gg/2dFpfNE';
-
-export async function getStatbusData() {
-  const summary = await(
-    await fetch('https://statbus.psykzz.com/api/summary', {
-      next: { revalidate: 60 },
-    })
-  ).json();
-
-  // Remove this - do it later in the component itself.
-  const rounds = await Promise.all(
-    summary.rounds.map(async (roundId: number) => {
-      // const data = await getRoundData(roundId);
-      return <Round key={roundId} roundId={roundId} />;
-    })
-  );
-  
-  return { summary, rounds };
-}
-
-export async function getRoundData(roundId: number) {
-  const res = await fetch(`https://statbus.psykzz.com/api/round/${roundId}`, {
-    next: { revalidate: 60 },
-  });
-  if (!res.ok) {
-    return {};
-  }
-  const data = await res.json();
-  return data?.round ?? {};
-}
 
 export default async function Home() {
   const { summary, rounds } = await getStatbusData();
@@ -58,7 +30,7 @@ export default async function Home() {
 
         <h2 className={styles.subtitle}>Latest rounds</h2>
 
-        <div className={styles.grid}>{rounds}</div>
+        <div className={styles.grid}>{rounds.map(roundId => <Round key={roundId} roundId={roundId} />)}</div>
       </main>
     </div>
   );
