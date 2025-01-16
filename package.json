@@ -16,7 +16,7 @@
     "@types/react": "19.0.7",
     "@types/react-dom": "19.0.3",
     "eslint": "8.28.0",
-    "eslint-config-next": "13.0.5",
+    "eslint-config-next": "15.1.4",
     "next": "^15.1.4",
     "octokit": "^4.1.0",
     "react": "19.0.0",
